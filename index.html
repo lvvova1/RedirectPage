@@ -3,7 +3,14 @@
 <body>
 <script type="text/javascript">
     window.onload = function() {
-        window.location = 'steam://joinlobby/602960/109775241594720140/76561198043711483';
+        const urlParams = new URLSearchParams(window.location.search);
+        const myParam = urlParams.get('q');
+        if(myParam) {
+            window.location = myParam;
+        } else {
+            // fallback or error handling when no parameter is provided
+            document.body.innerHTML = "No redirect URL provided.";
+        }
     }
 </script>
 </body>
